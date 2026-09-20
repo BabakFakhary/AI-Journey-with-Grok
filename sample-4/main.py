@@ -13,11 +13,14 @@ from bidi.algorithm import get_display
 x = np.array([0.5, 0.3, 0.2])
 
 # وزن‌ها و بایاس (مقدارهای فرضی)
-w = np.array([0.9, 0.6, -0.2])
-b = 0.1
+W = np.array([
+    [0.4, 0.6, -0.2],   # نورون اول
+    [0.1, -0.5, 0.8]    # نورون دوم
+])
+b = np.array([0.1, -0.3])
 
 # محاسبه z
-z = np.dot(x, w) + b
+z = np.dot(W, x) + b
 print(get_display(arabic_reshaper.reshape(f"مقدار z =: {z}")))
 
 # تابع Sigmoid
